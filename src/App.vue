@@ -7,12 +7,26 @@
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          :src="require('./assets/logo-agrotech.png')"
           transition="scale-transition"
-          width="40"
+          width="80"
         />
       </div>
       <v-spacer></v-spacer>
+      <v-list-item-icon v-if="showAdminBoard">
+        <v-btn icon>
+          <v-icon large>mdi-account-circle</v-icon>
+        </v-btn>
+      </v-list-item-icon>
+      <v-list-item-icon
+          class="ml-4"
+          v-if="showAdminBoard"
+          @click="logOut"
+      >
+        <v-btn icon>
+          <v-icon large>mdi-power</v-icon>
+        </v-btn>
+      </v-list-item-icon>
     </v-app-bar>
     <v-main>
       <router-view/>
@@ -28,5 +42,22 @@ export default {
   data: () => ({
     //
   }),
+  computed:{
+    currentUser(){
+      return this.$store.state.auth.user
+    },
+    showAdminBoard(){
+      if (this.currentUser) {
+        return this.currentUser;
+      }
+      return false;
+    }
+  },
+  methods:{
+    logOut(){
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/');
+    }
+  }
 };
 </script>
