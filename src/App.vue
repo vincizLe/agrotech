@@ -9,17 +9,17 @@
           contain
           :src="require('./assets/logo-agrotech.png')"
           transition="scale-transition"
-          width="80"
+          width="75"
         />
       </div>
       <v-spacer></v-spacer>
-      <v-list-item-icon v-if="showAdminBoard">
+      <v-list-item-icon v-if="showAdminBoard" class="mt-1">
         <v-btn icon>
           <v-icon large>mdi-account-circle</v-icon>
         </v-btn>
       </v-list-item-icon>
       <v-list-item-icon
-          class="ml-4"
+          class="ml-4 mt-1"
           v-if="showAdminBoard"
           @click="logOut"
       >

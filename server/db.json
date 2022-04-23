@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Diana Jael",
+      "lastname": "Callmelll del Solar",
+      "dni": 76982567,
+      "cellphone": 989250123,
+      "email": "diana@gmail.com",
+      "password": 123456578
+    },
+    {
+      "id": 3,
+      "name": "Miguel Antonio",
+      "lastname": "Ortega Palomino",
+      "dni": 76294567,
+      "cellphone": 934021485,
+      "email": "miguel@gmail.com",
+      "password": 123456579
+    },
+    {
+      "name": "Juan",
+      "lastname": "Parodi Reyes",
+      "dni": "74895604",
+      "cellphone": "998362741",
+      "email": "juan@gmail.com",
+      "password": "123456789",
+      "id": 4
+    },
+    {
+      "name": "Samir Len",
+      "lastname": "Orihuela Ramirez",
+      "dni": "45375941",
+      "cellphone": "964238715",
+      "email": "samir123@hotmail.com",
+      "password": "Samir",
+      "id": 5
+    }
+  ]
+}
