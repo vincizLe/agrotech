@@ -36,5 +36,37 @@
       "password": "Samir",
       "id": 5
     }
+  ],
+  "plots": [
+    {
+      "id": 1,
+      "name": "El Resplandor",
+      "description": "La parcela esta cerca al río",
+      "location": "Ventanilla",
+      "area": 1000,
+      "volume": 345,
+      "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "user_id": 2
+    },
+    {
+      "id": 6,
+      "name": "Agroverde",
+      "description": "Se encuentra en la avenida principal",
+      "location": "San Juan de Miraflores",
+      "area": "250",
+      "volume": "69",
+      "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "user_id": 4
+    },
+    {
+      "id": 7,
+      "name": "El aji picante",
+      "description": "En esta parcela se sembro el ají Lima",
+      "location": "Ventanilla",
+      "area": "2000",
+      "volume": "509",
+      "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "user_id": 5
+    }
   ]
 }

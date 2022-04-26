@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import IndexView from "@/views/IndexView";
 import UsersView from "@/views/UsersView";
+import PlotsView from "@/views/PlotsView";
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/users',
     name:'Users',
     component: UsersView
+  },
+  {
+    path: '/plots',
+    name: 'Plots',
+    component: PlotsView
   }
 ]
 

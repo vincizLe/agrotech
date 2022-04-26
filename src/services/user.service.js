@@ -5,6 +5,9 @@ class UserService {
     getAllUsers(){
         return axios.get(API_URL + '/users');
     }
+    getUserById(id){
+        return axios.get(API_URL + `/users/${id}`)
+    }
     create(data){
         return axios.post(API_URL + '/users',data)
     }
