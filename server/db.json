@@ -68,5 +68,31 @@
       "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
       "user_id": 5
     }
+  ],
+  "sills": [
+    {
+      "id": 1,
+      "name": "Aji Amarillo",
+      "description": "Oriundo de la costa",
+      "temperature": 20,
+      "humidity": 10,
+      "photography": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Rocoto",
+      "description": "Oriundo de la sierra",
+      "temperature": 18,
+      "humidity": 11,
+      "photography": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Limo",
+      "description": "Se cultiva sobre todo en la costa norte, donde se usa mucho en la elaboración del ceviche.",
+      "temperature": "20",
+      "humidity": "12",
+      "photography": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+    }
   ]
 }

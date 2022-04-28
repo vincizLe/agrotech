@@ -59,7 +59,7 @@
                 open-delay="200"
                 style="cursor: pointer"
             >
-              <router-link to="/users" class="text-decoration-none">
+              <router-link to="/sills" class="text-decoration-none">
                 <v-card
                     :elevation="hover ? 20 : 2"
                     :class="{ 'on-hover': hover }"
