@@ -54,7 +54,7 @@
       "description": "Se encuentra en la avenida principal",
       "location": "San Juan de Miraflores",
       "area": "250",
-      "volume": "69",
+      "volume": "75",
       "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
       "user_id": 4
     },
@@ -93,6 +93,17 @@
       "temperature": "20",
       "humidity": "12",
       "photography": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+    }
+  ],
+  "admins": [
+    {
+      "id": 2,
+      "name": "Joel Tse",
+      "lastname": "Callmell del Solar Diaz",
+      "dni": 76982567,
+      "cellphone": "989250124",
+      "email": "joel@gmail.com",
+      "password": "123456789"
     }
   ]
 }

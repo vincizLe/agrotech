@@ -10,10 +10,15 @@
           :src="require('./assets/logo-agrotech.png')"
           transition="scale-transition"
           width="75"
+          style="cursor: pointer"
+          @click="navigateToIndex"
         />
       </div>
       <v-spacer></v-spacer>
-      <v-list-item-icon v-if="showAdminBoard" class="mt-1">
+      <v-list-item-icon
+          v-if="showAdminBoard"
+          class="mt-1"
+          @click="navigateToProfile">
         <v-btn icon>
           <v-icon large>mdi-account-circle</v-icon>
         </v-btn>
@@ -57,6 +62,12 @@ export default {
     logOut(){
       this.$store.dispatch('auth/logout');
       this.$router.push('/');
+    },
+    navigateToProfile(){
+      this.$router.push({name:'Profile'})
+    },
+    navigateToIndex(){
+      this.$router.push({name:'index'})
     }
   }
 };

@@ -5,6 +5,7 @@ import IndexView from "@/views/IndexView";
 import UsersView from "@/views/UsersView";
 import PlotsView from "@/views/PlotsView";
 import SillView from "@/views/SillView";
+import ProfileVue from "@/views/ProfileVue";
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/sills',
     name: 'Sills',
     component: SillView
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: ProfileVue
   }
 ]
 
