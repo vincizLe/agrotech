@@ -45,7 +45,7 @@
       "location": "Ventanilla",
       "area": 1000,
       "volume": 345,
-      "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "chiliImage": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
       "user_id": 2
     },
     {
@@ -55,7 +55,7 @@
       "location": "San Juan de Miraflores",
       "area": "250",
       "volume": "75",
-      "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "chiliImage": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
       "user_id": 4
     },
     {
@@ -65,7 +65,7 @@
       "location": "Ventanilla",
       "area": "2000",
       "volume": "509",
-      "photography": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "chiliImage": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
       "user_id": 5
     }
   ],
@@ -76,7 +76,7 @@
       "description": "Oriundo de la costa",
       "temperature": 20,
       "humidity": 10,
-      "photography": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+      "chiliImage": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
     },
     {
       "id": 2,
@@ -84,7 +84,7 @@
       "description": "Oriundo de la sierra",
       "temperature": 18,
       "humidity": 11,
-      "photography": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+      "chiliImage": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
     },
     {
       "id": 3,
@@ -92,7 +92,7 @@
       "description": "Se cultiva sobre todo en la costa norte, donde se usa mucho en la elaboración del ceviche.",
       "temperature": "20",
       "humidity": "12",
-      "photography": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+      "chiliImage": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
     }
   ],
   "admins": [
@@ -103,7 +103,7 @@
       "dni": 76982567,
       "cellphone": "989250124",
       "email": "joel@gmail.com",
-      "password": "123456789"
+      "password": "12345678"
     }
   ]
 }

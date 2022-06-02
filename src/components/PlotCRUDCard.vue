@@ -93,7 +93,7 @@
                       :items="users"
                       item-text="name"
                       item-value="id"
-                      v-model="plot.user_id"
+                      v-model="plot.userId"
                       :rules="userRules"
                       label="Usuario"
                   ></v-select>
@@ -141,7 +141,7 @@
         >
           <v-img
               height="200px"
-              :src="plot.photography"
+              :src="plot.plotImage"
           >
           </v-img>
           <v-card-title>{{plot.name}}</v-card-title>
@@ -161,7 +161,7 @@
                 ></v-img>
               </v-list-item-avatar>
               <v-list-item-content>
-                <v-list-item-title>{{plot.user_id}}</v-list-item-title>
+                <v-list-item-title>{{plot.userId}}</v-list-item-title>
               </v-list-item-content>
               <v-row
                   align="center"
@@ -228,8 +228,8 @@ export default {
         location:'',
         area:'',
         volume: '',
-        photography: 'https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg',
-        user_id:'',
+        plotImage: 'https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg',
+        userId:'',
       },
       plots:[],
       dialogDelete: false
@@ -253,8 +253,8 @@ export default {
         location:plot.location,
         area:plot.area,
         volume: plot.volume,
-        photography: plot.photography,
-        user_id:plot.user_id,
+        plotImage: plot.plotImage,
+        userId:plot.userId,
       }
     },
     getDisplayUser(user){
@@ -272,11 +272,11 @@ export default {
     retrieveAllPlots(){
       PlotService.getAllPlots()
           .then(response => {
-            this.plots=response.data.map(this.getDisplayPlot)
+            this.plots=response.data.content.map(this.getDisplayPlot)
           })
     },
     createPlot(data){
-      PlotService.create(data)
+      PlotService.create(data.userId,data)
           .then(response => {
             this.dialog =false
             this.reset()
@@ -305,7 +305,7 @@ export default {
     retrieveAllUsers() {
       UserService.getAllUsers()
           .then(response => {
-            this.users=response.data.map(this.getDisplayUser)
+            this.users=response.data.content.map(this.getDisplayUser)
           }).catch(e => {
         console.log(e);
       })

@@ -102,8 +102,8 @@
                       md="6"
                   >
                     <v-text-field
-                        v-model="user.cellphone"
-                        :rules="cellphoneRules"
+                        v-model="user.cellphoneNumber"
+                        :rules="cellphoneNumberRules"
                         label="Celular"
                     ></v-text-field>
                   </v-col>
@@ -183,20 +183,21 @@ export default {
       ],
       dniRules:[
         v => !!v || 'DNI es requerido',
-        v => v.length >= 8 || 'Mínimo 8 caracteres',
+        //v => v.length >= 8 || 'Mínimo 8 caracteres',
       ],
-      cellphoneRules:[
+      cellphoneNumberRules:[
         v => !!v || 'Celular es requerido',
-        v => v.length >= 9 || 'Mínimo 9 caracteres',
+        // v => v.length >= 9 || 'Mínimo 9 caracteres',
       ],
       user:{
         id:'',
         name:'',
         lastname:'',
         dni:'',
-        cellphone:'',
+        cellphoneNumber:'',
         email:'',
         password:'',
+        profileImage:'string'
       },
       editedIndex: -1,
       search: '',
@@ -204,7 +205,7 @@ export default {
         {text: 'Nombres', align: 'start', value: 'name'},
         { text: 'Apellidos', value: 'lastname'},
         { text: 'DNI', value: 'dni', filterable: false},
-        { text: 'Celular', value: 'cellphone', filterable: false },
+        { text: 'Celular', value: 'cellphoneNumber', filterable: false },
         { text: 'Email', value: 'email', filterable: false },
         { text: 'Contraseña', value: 'password', filterable: false },
         { text: 'Accciones', value: 'actions', sortable: false },
@@ -229,16 +230,17 @@ export default {
         name:user.name,
         lastname:user.lastname,
         dni:user.dni,
-        cellphone:user.cellphone,
+        cellphoneNumber:user.cellphoneNumber,
         email:user.email,
         password:user.password,
+        profileImage: user.profileImage
       };
     },
     //---
     retrieveAllUsers(){
       UserService.getAllUsers()
           .then(response => {
-            this.users=response.data.map(this.getDisplayUser);
+            this.users=response.data.content.map(this.getDisplayUser);
           })
     },
     createUser(data){

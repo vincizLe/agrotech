@@ -89,7 +89,7 @@ export default {
     retrieveAllPlots(){
       PlotService.getAllPlots()
       .then(response => {
-        this.plots=response.data.map(this.getDisplayPlot)
+        this.plots=response.data.content.map(this.getDisplayPlot)
       })
     },
     createPlot(data){
@@ -122,7 +122,7 @@ export default {
     retrieveAllUsers() {
       UserService.getAllUsers()
       .then(response => {
-        this.users=response.data.map(this.getDisplayUser)
+        this.users=response.data.content.map(this.getDisplayUser)
       }).catch(e => {
         console.log(e);
       })

@@ -55,6 +55,7 @@
                       label="Descripción"
                   ></v-textarea>
                 </v-col>
+                <!--
                 <v-col cols="12">
                   <v-text-field
                       v-model="sill.temperature"
@@ -73,6 +74,7 @@
                       label="Humedad"
                   ></v-text-field>
                 </v-col>
+                -->
               </v-row>
             </v-form>
           </v-card-text>
@@ -116,14 +118,14 @@
         >
           <v-img
               height="200px"
-              :src="sill.photography"
+              :src="sill.chiliImage"
           >
           </v-img>
           <v-card-title>{{sill.name}}</v-card-title>
           <v-card-text>
             <div class="my-4 text-subtitle-1">{{sill.description}}</div>
-            <div class="my-4 text-subtitle-1">°C: {{sill.temperature}}</div>
-            <div class="my-4 text-subtitle-1">g/m3: {{sill.humidity}}</div>
+            <!--<div class="my-4 text-subtitle-1">°C: {{sill.temperature}}</div>
+            <div class="my-4 text-subtitle-1">g/m3: {{sill.humidity}}</div>-->
           </v-card-text>
           <v-card-actions>
             <v-list-item class="grow">
@@ -183,7 +185,7 @@ export default {
         name:'',
         temperature: '',
         humidity:'',
-        photography: 'https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg',
+        chiliImage: 'https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg',
 
       },
       sills:[],
@@ -206,14 +208,14 @@ export default {
         description: sill.description,
         temperature:sill.temperature,
         humidity:sill.humidity,
-        photography: sill.photography,
+        chiliImage: sill.chiliImage,
       }
     },
     //---
     retrieveAllSills(){
       SillService.getAllSills()
           .then(response => {
-            this.sills=response.data.map(this.getDisplaySill)
+            this.sills=response.data.content.map(this.getDisplaySill)
           })
     },
     createSill(data){
