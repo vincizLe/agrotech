@@ -1,38 +1,42 @@
 <template>
-  <v-parallax height="550" :src="require('../assets/main-background.jpg')" >
-    <v-overlay absolute="absolute" color="#000000">
-      <v-icon size="160" color="secondary" class="mb-6">
-        mdi-account-circle
-      </v-icon>
-      <v-form ref="form">
-        <v-text-field
-            v-model="user.username"
-            :rules="usernameRules"
-            label="Usuario"
-            required
-        ></v-text-field>
-        <v-text-field
-            v-model="user.password"
-            :rules="passwordRules"
-            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-            :type="show1 ? 'text' : 'password'"
-            label="Contraseña"
-            @click:append="show1 = !show1"
-            required
-        ></v-text-field>
-        <v-btn
-            color="success"
-            class="mt-8"
-            @click="validate"
-        >
-          Iniciar Sesión
-        </v-btn>
-      </v-form>
-      <div class="mt-4">
-        <p style="color: #FF5252">{{message}}</p>
-      </div>
-    </v-overlay>
-  </v-parallax>
+  <v-container>
+   <v-card
+       style="box-shadow: 2px 3px 1px -4px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 10px 3px rgb(0 0 0 / 12%)"
+       height="500">
+     <v-icon size="160" color="primary" class="mb-6 mt-8">
+       mdi-account-circle
+     </v-icon>
+     <v-form ref="form">
+       <v-text-field
+           class="ml-10 mr-10"
+           v-model="user.username"
+           :rules="usernameRules"
+           label="Usuario"
+           required
+       ></v-text-field>
+       <v-text-field
+           class="ml-10 mr-10"
+           v-model="user.password"
+           :rules="passwordRules"
+           :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+           :type="show1 ? 'text' : 'password'"
+           label="Contraseña"
+           @click:append="show1 = !show1"
+           required
+       ></v-text-field>
+       <v-btn
+           color="primary"
+           class="mt-8"
+           @click="validate"
+       >
+         Iniciar Sesión
+       </v-btn>
+     </v-form>
+     <div class="mt-6">
+       <p style="color: #FF5252">{{message}}</p>
+     </div>
+   </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -57,7 +61,7 @@ export default {
   },
   created() {
     if (this.loggedIn) {
-        this.$router.push('/about'); //evaluate
+        this.$router.push('/index'); //evaluate
     }
   },
   methods:{
@@ -65,20 +69,10 @@ export default {
       if (this.user.username && this.user.password) {
         this.$store.dispatch('auth/login', this.user).then(
             (response) => {
-              switch (response.idResponse){
-                case 1:
-                  this.$router.push('/about');
-                  break;
-                case -2:
-                  this.message = response.message
-                  break
-                case -3:
-                  this.message = response.message
-                  break
-                default:
-                  this.message = response.message
-                  break
+              if(response==1){
+                this.$router.push('/index');
               }
+              this.message = response
             },
             error => {
               this.message =

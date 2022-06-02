@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Diana Jael",
+      "lastname": "Callmelll del Solar",
+      "dni": 76982567,
+      "cellphone": 989250123,
+      "email": "diana@gmail.com",
+      "password": 123456578
+    },
+    {
+      "id": 3,
+      "name": "Miguel Antonio",
+      "lastname": "Ortega Palomino",
+      "dni": 76294567,
+      "cellphone": 934021485,
+      "email": "miguel@gmail.com",
+      "password": 123456579
+    },
+    {
+      "name": "Juan",
+      "lastname": "Parodi Reyes",
+      "dni": "74895604",
+      "cellphone": "998362741",
+      "email": "juan@gmail.com",
+      "password": "123456789",
+      "id": 4
+    },
+    {
+      "name": "Samir Len",
+      "lastname": "Orihuela Ramirez",
+      "dni": "45375941",
+      "cellphone": "964238715",
+      "email": "samir123@hotmail.com",
+      "password": "Samir",
+      "id": 5
+    }
+  ],
+  "plots": [
+    {
+      "id": 1,
+      "name": "El Resplandor",
+      "description": "La parcela esta cerca al río",
+      "location": "Ventanilla",
+      "area": 1000,
+      "volume": 345,
+      "chiliImage": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "user_id": 2
+    },
+    {
+      "id": 6,
+      "name": "Agroverde",
+      "description": "Se encuentra en la avenida principal",
+      "location": "San Juan de Miraflores",
+      "area": "250",
+      "volume": "75",
+      "chiliImage": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "user_id": 4
+    },
+    {
+      "id": 7,
+      "name": "El aji picante",
+      "description": "En esta parcela se sembro el ají Lima",
+      "location": "Ventanilla",
+      "area": "2000",
+      "volume": "509",
+      "chiliImage": "https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg",
+      "user_id": 5
+    }
+  ],
+  "sills": [
+    {
+      "id": 1,
+      "name": "Aji Amarillo",
+      "description": "Oriundo de la costa",
+      "temperature": 20,
+      "humidity": 10,
+      "chiliImage": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Rocoto",
+      "description": "Oriundo de la sierra",
+      "temperature": 18,
+      "humidity": 11,
+      "chiliImage": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Limo",
+      "description": "Se cultiva sobre todo en la costa norte, donde se usa mucho en la elaboración del ceviche.",
+      "temperature": "20",
+      "humidity": "12",
+      "chiliImage": "https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg"
+    }
+  ],
+  "admins": [
+    {
+      "id": 2,
+      "name": "Joel Tse",
+      "lastname": "Callmell del Solar Diaz",
+      "dni": 76982567,
+      "cellphone": "989250124",
+      "email": "joel@gmail.com",
+      "password": "12345678"
+    }
+  ]
+}
