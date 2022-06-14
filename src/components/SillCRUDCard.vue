@@ -38,7 +38,6 @@
                       label="Id"
                   ></v-text-field>
                 </v-col>
-
                 <v-col cols="12">
                   <v-text-field
                       v-model="sill.name"
@@ -54,6 +53,13 @@
                       :rules="descriptionRules"
                       label="Descripción"
                   ></v-textarea>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
+                      v-model="sill.chiliImage"
+                      :rules="chiliImageRules"
+                      label="Url de la imagen del ají"
+                  ></v-text-field>
                 </v-col>
                 <!--
                 <v-col cols="12">
@@ -168,6 +174,9 @@ export default {
       descriptionRules:[
         v => !!v || 'La descripción es requerida',
       ],
+      chiliImageRules:[
+        v => !!v || 'La url de la imagen del ají es requerida',
+      ],
       temperatureRules:[
         v => !!v || 'La temperatura es requerida',
         v => !isNaN(v) || 'Ingrese la temperatura en números',
@@ -185,8 +194,7 @@ export default {
         name:'',
         temperature: '',
         humidity:'',
-        chiliImage: 'https://portal.andina.pe/EDPfotografia3/Thumbnail/2018/09/07/000530406W.jpg',
-
+        chiliImage: '',
       },
       sills:[],
       dialogDelete: false

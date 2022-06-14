@@ -85,6 +85,7 @@
 
 <script>
 import AdminService from "@/services/admin.service";
+import UserService from "@/services/user.service";
 
 export default {
   name: "IndexView",
@@ -93,15 +94,16 @@ export default {
   }),
   created() {
     const user = JSON.parse(localStorage.getItem('user'))
-    this.retrieveAdmin(user.specialist.idSpecialist)
+    this.name = user.name
   },
   methods:{
-    retrieveAdmin(idAdmin){
+    /*retrieveAdmin(idAdmin){
       AdminService.getAdmin(idAdmin)
           .then(response => {
             this.name = response.data.username;
           })
-    }
+    }*/
+
   }
 }
 </script>

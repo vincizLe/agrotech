@@ -41,6 +41,7 @@
 
 <script>
 import User from '../models/user';
+import UserService from "@/services/user.service";
 export default {
   name: 'LoginForm',
   data: () => ({
@@ -69,18 +70,26 @@ export default {
       if (this.user.username && this.user.password) {
         this.$store.dispatch('auth/login', this.user).then(
             (response) => {
-              if(response==1){
+              if(response==200){
                 this.$router.push('/index');
               }
               this.message = response
             },
             error => {
-              this.message =
+              /*this.message =
                   (error.response && error.response.data) ||
                   error.message ||
-                  error.toString();
+                  error.toString();*/
             }
         );
+        /*UserService.getUserByEmailAndPassword(this.user.username,this.user.password)
+        .then(response => {
+          if(response.status==200){
+            localStorage.setItem('user', JSON.stringify(response.data));
+            this.$router.push('/index');
+          }
+        })
+        .catch(error => console.log(error))*/
       }
     },
     validate () {

@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'http://184.73.40.134:8080/api';
 
 class UserService {
     getAllUsers(){

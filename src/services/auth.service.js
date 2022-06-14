@@ -1,17 +1,14 @@
 import axios from 'axios';
-const API_URL = 'https://teapprendo.herokuapp.com';
+const API_URL = 'http://184.73.40.134:8080/api';
 class AuthService {
     login(user) {
         return axios
-            .post(API_URL + '/specialists/login', {
-                username: user.username,
-                password: user.password,
-            })
+            .get(API_URL + `/users/${user.username}/${user.password}`)
             .then(response => {
-                if (response.data.token) {
+                if (response.data) {
                     localStorage.setItem('user', JSON.stringify(response.data));
                 }
-                return response.data;
+                return response;
             });
     }
     logout() {
