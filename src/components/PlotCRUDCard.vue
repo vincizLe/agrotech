@@ -57,6 +57,13 @@
                 </v-col>
                 <v-col cols="12">
                   <v-text-field
+                      v-model="plot.plotImage"
+                      :rules="plotImageRules"
+                      label="Url de la imagen de la parcela"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-text-field
                       v-model="plot.location"
                       :rules="locationRules"
                       label="Ubicación"
@@ -203,6 +210,9 @@ export default {
       descriptionRules:[
         v => !!v || 'La descripción es requerida',
       ],
+      plotImageRules:[
+        v => !!v || 'El url de la imagen de la parcela es requerida',
+      ],
       locationRules:[
         v => !!v || 'La ubicación es requerida',
       ],
@@ -228,7 +238,7 @@ export default {
         location:'',
         area:'',
         volume: '',
-        plotImage: 'https://pbs.twimg.com/media/Ewt-ZNHWgAEIVAb.jpg',
+        plotImage: '',
         userId:'',
       },
       plots:[],
@@ -310,14 +320,6 @@ export default {
         console.log(e);
       })
     },
-    /*getUser(id) {
-      UserService.getUserById(id)
-          .then(response => {
-            console.log(response.data)
-          }).catch(e => {
-        console.log(e);
-      })
-    },*/
 
     //---
     validate () {

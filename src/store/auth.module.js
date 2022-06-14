@@ -12,10 +12,10 @@ export const auth = {
         login({ commit }, user) {
             return AuthService.login(user).then(
                 response => {
-                    switch (response.idResponse){
-                        case 1:
+                    switch (response.status){
+                        case 200:
                             commit('loginSuccess', response);
-                            return Promise.resolve(response.idResponse);
+                            return Promise.resolve(response.status);
                             break;
                         case -2:
                             commit('loginFailure');

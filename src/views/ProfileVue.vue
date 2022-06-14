@@ -42,13 +42,13 @@
                       style="display: none"
                   >
                     <v-text-field
-                        v-model="admin.id"
+                        v-model="user.id"
                         label="Id"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12">
                     <v-text-field
-                        v-model="admin.name"
+                        v-model="user.name"
                         :rules="nameRules"
                         label="Nombres"
                     ></v-text-field>
@@ -57,7 +57,7 @@
                       cols="12"
                   >
                     <v-text-field
-                        v-model="admin.lastname"
+                        v-model="user.lastname"
                         :rules="lastnameRules"
                         label="Apellidos"
                     ></v-text-field>
@@ -67,7 +67,7 @@
                       sm="6"
                       md="6">
                     <v-text-field
-                        v-model="admin.dni"
+                        v-model="user.dni"
                         :rules="dniRules"
                         label="DNI"
                     ></v-text-field>
@@ -78,7 +78,7 @@
                       md="6"
                   >
                     <v-text-field
-                        v-model="admin.cellphone"
+                        v-model="user.cellphoneNumber"
                         :rules="cellphoneRules"
                         label="Celular"
                     ></v-text-field>
@@ -87,7 +87,7 @@
                       cols="12"
                   >
                     <v-text-field
-                        v-model="admin.email"
+                        v-model="user.email"
                         :rules="emailRules"
                         label="Email"
                     ></v-text-field>
@@ -96,7 +96,7 @@
                       cols="12"
                   >
                     <v-text-field
-                        v-model="admin.password"
+                        v-model="user.password"
                         :rules="passwordRules"
                         label="Password"
                     ></v-text-field>
@@ -137,35 +137,35 @@
         <v-row>
           <v-col cols="10" class="mx-auto mt-4  mb-lg-n6">
             <v-text-field
-                v-bind:value="admin.name + ' ' + admin.lastname"
+                v-bind:value="user.name + ' ' + user.lastname"
                 label="Nombres y Apellidos"
                 readonly
             ></v-text-field>
           </v-col>
           <v-col cols="5" class="mx-auto mr-0 mb-lg-n6">
             <v-text-field
-                v-bind:value="admin.dni"
+                v-bind:value="user.dni"
                 label="DNI"
                 readonly
             ></v-text-field>
           </v-col>
           <v-col cols="5" class="mx-auto ml-0 mb-lg-n6">
             <v-text-field
-                v-bind:value="admin.cellphone"
+                v-bind:value="user.cellphoneNumber"
                 label="Celular"
                 readonly
             ></v-text-field>
           </v-col>
           <v-col cols="10" class="mx-auto mb-lg-n6">
             <v-text-field
-                v-bind:value="admin.email"
+                v-bind:value="user.email"
                 label="Email"
                 readonly
             ></v-text-field>
           </v-col>
           <v-col cols="10" class="mx-auto">
             <v-text-field
-                v-bind:value="admin.password"
+                v-bind:value="user.password"
                 :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="show ? 'text' : 'password'"
                 label="Contraseña"
@@ -180,8 +180,8 @@
 </template>
 
 <script>
-import Admin2Service from "@/services/admin2.service";
 import UserService from "@/services/user.service";
+import userService from "@/services/user.service";
 
 export default {
   name: "ProfileVue",
@@ -207,12 +207,12 @@ export default {
       cellphoneRules:[
         v => !!v || 'Celular es requerido',
       ],
-      admin:{
+      user:{
         id:'',
         name:'',
         lastname:'',
         dni:'',
-        cellphone:'',
+        cellphoneNumber:'',
         email:'',
         password:'',
       },
@@ -221,19 +221,20 @@ export default {
   },
   created() {
     const user = JSON.parse(localStorage.getItem('user'))
-    this.retrieveAdmin(user.specialist.idSpecialist)
+    this.retrieveUser(user.id)
   },
   methods:{
-    retrieveAdmin(idAdmin){
-      Admin2Service.getById(idAdmin)
+    retrieveUser(userId){
+      UserService.getUserById(userId)
           .then(response => {
-            this.admin = response.data;
+            this.user = response.data;
+            console.log(this.user)
           })
     },
-    updateAdmin(id,data){
-      Admin2Service.update(id,data)
+    updateUser(id,data){
+      userService.update(id,data)
           .then(response => {
-            console.log("Admin updated with success")
+            console.log("user updated with success")
             location.reload();
           }).catch(e => {
         console.log(e);
@@ -254,11 +255,10 @@ export default {
       this.dialog = false
       this.$nextTick(() => {
         const user = JSON.parse(localStorage.getItem('user'))
-        this.retrieveAdmin(user.specialist.idSpecialist)
       })
     },
     save () {
-      this.updateAdmin(this.admin.id,this.admin)
+      this.updateUser(this.user.id,this.user)
       this.close()
     },
   }

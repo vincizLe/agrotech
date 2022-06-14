@@ -162,6 +162,7 @@
 
 <script>
 import UserService from "@/services/user.service";
+import RoleService from "@/services/role.service";
 
 export default {
   name: "UserCRUDTable",
@@ -210,9 +211,10 @@ export default {
         { text: 'Contraseña', value: 'password', filterable: false },
         { text: 'Accciones', value: 'actions', sortable: false },
       ],
+      allUsers:[],
       users:[],
       dialogDelete: false,
-
+      roleId: 0
     }
   },
   computed:{
@@ -240,19 +242,33 @@ export default {
     retrieveAllUsers(){
       UserService.getAllUsers()
           .then(response => {
-            this.users=response.data.content.map(this.getDisplayUser);
+            this.allUsers=response.data.content.map(this.getDisplayUser);
+            //We create a new array with all users except administrators
+            for (let user of this.allUsers) {
+              RoleService.getUserRolByUserId(user.id)
+              .then(response => {
+                if(response.data.roleId==1){
+                  console.log(response)
+                  this.users.push(user)
+                }
+              })
+            }
           })
     },
     createUser(data){
       UserService.create(data)
           .then(response => {
-            this.dialog=false;
-            this.reset();
-            location.reload();
+            RoleService.create(response.data.id)
+            .then(response => {
+              this.dialog=false;
+              this.reset();
+              location.reload();
+            })
           })
           .catch(e => {
             console.log(e);
-          })
+          });
+
     },
     updateUser(id,data){
       UserService.update(id,data)
